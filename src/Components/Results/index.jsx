@@ -1,13 +1,16 @@
-import React from 'react';
-
 import './Results.scss';
+import JSONPretty from 'react-json-pretty';
+const JSONPrettyTheme = require('react-json-pretty/dist/adventure_time');
 
 function Results(props){
   return (
     <section >
-      <pre data-testid="results-section">{props.data ? JSON.stringify(props.data, undefined, 2) : null}</pre>
+      {
+        props.loading
+        ? <div>Waiting for search query OR loading...!</div>
+        : <JSONPretty data-testid="results-section" id="json-pretty" theme={JSONPrettyTheme} data={props.data}></JSONPretty>
+      }
     </section>
   );
 }
-
 export default Results;
