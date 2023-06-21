@@ -18,7 +18,7 @@ Today, we begin the first of a 4-Phase build of the RESTy application, written i
 
 Ryan Gallaway  
 Reece Renninger  
-Kaedeon O'maera  
+Kaeden O'maera  
 Ryan Eastman  
 Nick Mullaney
 
@@ -28,21 +28,27 @@ Nick Mullaney
 
 For now I have none and do not require one
 
-#### How to initialize/run your application 
+#### How to initialize/run your application
 
-- Run `npm i` and then `npm start` 
+- Run `npm i` and then `npm start`
 
 <!--- #### How to use your library (where applicable) --->
 
 #### Features / Routes
 
-- Currently a placeholder for REST website.
+- Currently a placeholder for REST website that can use API endpoints.
 <!-- - GET : `/hello` - specific route to hit -->
 
 #### Tests
 
 - Run `npm test` to see tests running.
 
-#### UML
+#### UMLs
 
-![Whiteboard](./assets/uml.png)
+##### Lab 27 UML
+
+![UML 27](./assets/uml27.png)
+
+##### Lab 26 UML
+
+![UML 26](./assets/uml26.png)
