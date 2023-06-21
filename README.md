@@ -24,15 +24,15 @@ Nick Mullaney
 
 ### Setup
 
-#### `.env` requirements (where applicable)
+#### `.env` requirements
 
 For now I have none and do not require one
 
-#### How to initialize/run your application (where applicable)
+#### How to initialize/run your application 
 
 - Run `npm i` and then `npm start` 
 
-#### How to use your library (where applicable)
+<!--- #### How to use your library (where applicable) --->
 
 #### Features / Routes
 
