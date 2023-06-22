@@ -1,12 +1,16 @@
-# LAB - Class 26/27/28/29
+# LAB - Class 26 / 27 / 28 / 29
 
-## Project: RESTy
+## Project: RESTy / `useState` Hook / Component LifeCycle / `useEffect` Hook
 
 ### Author: Ike Steoger
 
 ### Problem Domain  
 
-Today, we begin the first of a 4-Phase build of the RESTy application, written in React. In this first phase, our goal is to setup the basic scaffolding of the application, with intent being to add more functionality to the system as we go. This initial build sets up the file structure so that we can progressively build this application in a scalable manner.
+4-Phase build of the RESTy application, written in React.
+
+- In the 1st phase, our goal is to setup the basic scaffolding of the application, with intent being to add more functionality to the system as we go. This initial build sets up the file structure so that we can progressively build this application in a scalable manner.
+- In phase 2, we will be receiving user input in preparation of connecting to live APIs, using the `useState()` hook in our functional components. In order to properly manage state with the `useState` hook, we will now convert `<App />` to a functional component.
+- In phase 3, we will be connecting RESTy to live APIs, fetching and displaying remote data. Our primary focus will be to service GET requests.
 
 ### Links and Resources
 
@@ -18,15 +22,15 @@ Today, we begin the first of a 4-Phase build of the RESTy application, written i
 
 Ryan Gallaway  
 Reece Renninger  
+Nick Mullaney  
 Kaeden O'maera  
 Ryan Eastman  
-Nick Mullaney
 
 ### Setup
 
-#### `.env` requirements
+<!-- #### `.env` requirements
 
-For now I have none and do not require one
+For now I have none and do not require one -->
 
 #### How to initialize/run your application
 
@@ -36,7 +40,7 @@ For now I have none and do not require one
 
 #### Features / Routes
 
-- Currently a placeholder for REST website that can use API endpoints.
+- A website that can use REST functions on any API that you put a link in for.
 <!-- - GET : `/hello` - specific route to hit -->
 
 #### Tests
@@ -44,6 +48,10 @@ For now I have none and do not require one
 - Run `npm test` to see tests running.
 
 #### UMLs
+
+##### Lab 28 UML
+
+![UML 28](./assets/uml28.png)
 
 ##### Lab 27 UML
 
