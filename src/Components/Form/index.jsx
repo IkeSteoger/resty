@@ -4,7 +4,7 @@ import './Form.scss';
 
 function Form(props){
 
-  const [url, setUrl] = useState('https://pokeapi.co/api/v2/');
+  const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon');
   const [method, setMethod] = useState('GET');
   const [json, setJson] = useState('');
 
@@ -23,8 +23,8 @@ function Form(props){
       <form onSubmit={handleSubmit} >
         <label>
           <span data-testid="form-span" >URL: </span>
-          <input name='url' type='text' onChange={(e) => setUrl(e.target.value)}/>
-          <button type="submit">GO!</button>
+          <input data-testid="form-input" name='url' type='text' onChange={(e) => setUrl(e.target.value)}/>
+          <button data-testid="form-button" type="submit">GO!</button>
         </label>
         <label className="methods">
           <span data-testid="form-get" id="get" onClick={() => setMethod('GET')} style={{ backgroundColor: method === 'GET' ? 'green' : 'grey'}}>GET</span>
