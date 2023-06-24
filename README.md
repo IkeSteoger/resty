@@ -11,6 +11,7 @@
 - In the 1st phase, our goal is to setup the basic scaffolding of the application, with intent being to add more functionality to the system as we go. This initial build sets up the file structure so that we can progressively build this application in a scalable manner.
 - In phase 2, we will be receiving user input in preparation of connecting to live APIs, using the `useState()` hook in our functional components. In order to properly manage state with the `useState` hook, we will now convert `<App />` to a functional component.
 - In phase 3, we will be connecting RESTy to live APIs, fetching and displaying remote data. Our primary focus will be to service GET requests.
+- In phase 4, we will be tracking every API call and storing it in history.
 
 ### Links and Resources
 
@@ -23,7 +24,7 @@
 Ryan Gallaway  
 Reece Renninger  
 Nick Mullaney  
-Kaeden O'maera  
+Kaeden O'meara  
 Ryan Eastman  
 
 ### Setup
@@ -48,6 +49,10 @@ For now I have none and do not require one -->
 - Run `npm test` to see tests running.
 
 #### UMLs
+
+##### Lab 29 UML
+
+![UML 29](./assets/uml29.png)
 
 ##### Lab 28 UML
 

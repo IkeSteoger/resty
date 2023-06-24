@@ -32,8 +32,8 @@ function Form(props){
           <span data-testid="form-put" id="put" onClick={() => setMethod('PUT')} style={{ backgroundColor: method === 'PUT' ? 'green' : 'grey'}}>PUT</span>
           <span data-testid="form-delete" id="delete" onClick={() => setMethod('DELETE')} style={{ backgroundColor: method === 'DELETE' ? 'red' : 'grey'}}>DELETE</span>
         </label>
-        {method === 'POST' && <textarea onChange={(e) => setJson(e.target.value)}/>}
-        {method === 'PUT' && <textarea onChange={(e) => setJson(e.target.value)}/>}
+        {method === 'POST' && <textarea rows="4" cols="35" onChange={(e) => setJson(e.target.value)}/>}
+        {method === 'PUT' && <textarea rows="4" cols="35" onChange={(e) => setJson(e.target.value)}/>}
       </form>
     </>
   );

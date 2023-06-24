@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import axios from 'axios';
 
 import './App.scss';
@@ -6,47 +6,85 @@ import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Form from './Components/Form';
 import Results from './Components/Results';
+import History from './Components/History';
+
+export const initialState = {
+  data: null,
+  loading: false,
+  history: [],
+}
+
+export const dataReducer = (state=initialState, action) => {
+  switch(action.type){
+    case 'ADD DATA':
+      return {
+        ...state, 
+        data: action.payload}
+    case 'LOADING':
+      return {...state, 
+       loading: action.payload}
+    case 'HISTORY':
+      return {...state,
+        history: [...state.history, action.payload]}
+    default:
+      return state;
+  }
+}
 
 function App(){
 
-  const [data, setData] = useState(null);
-  const [requestParams, setRequestParams] = useState({})
-  const [loading, setLoading] = useState(false);
+  // const [data, setData] = useState(null);
+  // const [loading, setLoading] = useState(false);
+  // const [history, setHistory] = useState([]);
+  // const [input, setInput] = useState('');
+  const [requestParams, setRequestParams] = useState({});
+  const [state, dispatch] = useReducer(dataReducer, initialState);
 
   useEffect(() => {
     console.log('An Event Occured');
   });
 
   useEffect(() => {
-    async function getData(){
-      if(requestParams.method === 'GET'){
-        let response = await axios.get(requestParams.url)
-        setData(response.data.results)
+    try{
+      dispatch({type: 'LOADING', payload: true });
+      async function getData(){
+        if(requestParams.method === 'GET'){
+          let response = await axios.get(requestParams.url);
+          dispatch({type: 'ADD DATA', payload: response.data });
+          let historyData = [requestParams, response.data];
+          dispatch({type: 'HISTORY', payload: historyData });
+        }
+        // if(requestParams.method === 'POST'){
+          //   let response = await axios.post(requestParams.url, requestParams.json)
+          //   setData(response.data)
+          // }
+          // if(requestParams.method === 'PUT'){
+            //   let response = await axios.put(requestParams.url, requestParams.json)
+            //   setData(response.data)
+            // }
+        // if(requestParams.method === 'DELETE'){
+        //   let response = await axios.delete(requestParams.url)
+        //   setData(response.data)
+        // }
       }
-      if(requestParams.method === 'POST'){
-        let response = await axios.post(requestParams.url, requestParams.json)
-        setData(response.data.results)
+      if(requestParams.method && requestParams.url){
+        getData();
+        dispatch({type: 'LOADING', payload: false });
       }
-      if(requestParams.method === 'PUT'){
-        let response = await axios.put(requestParams.url, requestParams.json)
-        setData(response.data.results)
-      }
-      if(requestParams.method === 'DELETE'){
-        let response = await axios.delete(requestParams.url)
-        setData(response.data.results)
-      }
-    }
-    if(requestParams.method && requestParams.url){
-      getData();
+    } catch {
+      dispatch({type: 'ADD DATA', payload: 'no data available' });
+      dispatch({type: 'LOADING', payload: false });
     }
   }, [requestParams])
-
+  
   const callApi = (requestParams) => {
-    setLoading(true);
     setRequestParams(requestParams);
-    setLoading(false);
   }
 
+  const historyClickHandler = (results) => {
+    dispatch({type: 'ADD DATA', payload: results})
+  }
+  
   return (
     <>
       <Header />
@@ -58,7 +96,8 @@ function App(){
         : <div></div>
       }
       <Form handleApiCall={callApi} />
-      <Results data={data} loading={loading} />
+      <Results data={state.data} loading={state.loading} />
+      <History history={state.history} historyClickHandler={historyClickHandler}/>
       <Footer />
     </>
   );
